@@ -1,19 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/portfolio_2/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Redirecting...</title>
-    <script>
-      // GitHub Pages SPA routing fix
-      // This script redirects 404 errors back to index.html with the path as a query parameter
-      const pathname = window.location.pathname;
-      if (!pathname.includes('.')) {
-        // Redirect to index.html with the original path
-        sessionStorage.setItem('redirect', pathname);
-        window.location.href = '/portfolio_2/index.html';
-      }
+    <meta charset="utf-8" />
+    <title>Nethum - Portfolio</title>
+    <script type="text/javascript">
+      // Redirect to the correct path
+      const path = window.location.pathname;
+      const newPath = path.replace('/portfolio_2', '');
+      window.location.href = '/portfolio_2' + newPath + window.location.search;
     </script>
   </head>
   <body>
