@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom"; // ← Changed to HashRouter
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Header/Header.jsx";
 import Hero from "./Hero/Hero.jsx";
 import About from "./About/About.jsx";
@@ -37,7 +37,7 @@ function App() {
   };
 
   return (
-    <Router basename="/portfolio_2"> 
+    <Router>
       {loading && <Loading onLoadingComplete={handleLoadingComplete} />}
       {/* {!loading && <CustomCursor />} */}
       
