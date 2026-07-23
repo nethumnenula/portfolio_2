@@ -1,0 +1,553 @@
+/* Projects.module.css */
+.projects {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    padding: 6rem 3rem;
+    background: #0d0d0d;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background decoration */
+.projects::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -20%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 107, 0, 0.03), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.projects::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 107, 0, 0.02), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* Section Title */
+.sectionTitle {
+    color: #e8e8e8;
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+}
+
+.sectionTitle::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6b00, #ff8c00);
+    margin: 0.8rem auto 0;
+    border-radius: 2px;
+    transition: width 0.4s ease;
+}
+
+.sectionTitle:hover::after {
+    width: 120px;
+}
+
+.sectionSubtitle {
+    color: #8a8a8a;
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Projects Grid */
+.projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+/* Project Card */
+.projectCard {
+    background: rgba(26, 26, 26, 0.6);
+    border-radius: 16px;
+    border: 1px solid #2a2a2a;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+}
+
+.projectCard:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 107, 0, 0.3);
+    box-shadow: 0 10px 40px rgba(255, 107, 0, 0.08);
+    background: rgba(26, 26, 26, 0.85);
+}
+
+/* Project Image */
+.projectImage {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+}
+
+.projectImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.projectCard:hover .projectImage img {
+    transform: scale(1.05);
+}
+
+/* Project Overlay */
+.projectOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 107, 0, 0.15), transparent);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1.2rem;
+}
+
+.projectNumber {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.06);
+    letter-spacing: -2px;
+    align-self: flex-end;
+}
+
+/* Project Status Badge */
+.projectStatus {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(10px);
+}
+
+/* Status variants */
+.completed {
+    background: rgba(46, 213, 115, 0.2);
+    color: #2ed573;
+    border: 1px solid rgba(46, 213, 115, 0.3);
+}
+
+.inprogress {
+    background: rgba(255, 165, 0, 0.2);
+    color: #ffa500;
+    border: 1px solid rgba(255, 165, 0, 0.3);
+}
+
+.live {
+    background: rgba(255, 0, 0, 0.2);
+    color: #ff0000;
+    border: 1px solid rgba(255, 107, 0, 0.3);
+}
+
+/* Project Content */
+.projectContent {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.projectContent h3 {
+    color: #e8e8e8;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.projectCard:hover .projectContent h3 {
+    color: #ff6b00;
+}
+
+.projectContent p {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    flex: 1;
+}
+
+/* Tech Stack */
+.techStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.techTag {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.8rem;
+    background: rgba(13, 13, 13, 0.6);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: #b0b0b0;
+    border: 1px solid #2a2a2a;
+    transition: all 0.3s ease;
+}
+
+.techTag:hover {
+    background: rgba(255, 107, 0, 0.08);
+    border-color: rgba(255, 107, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.techTag svg {
+    font-size: 0.9rem;
+}
+
+/* Features List */
+.featuresList {
+    margin: 0.8rem 0 1rem 0;
+    padding: 0.8rem 1rem;
+    background: rgba(13, 13, 13, 0.4);
+    border-radius: 8px;
+    border: 1px solid #1a1a1a;
+}
+
+.featuresLabel {
+    display: block;
+    color: #8a8a8a;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.4rem;
+}
+
+.featuresTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 0.8rem;
+}
+
+.featureTag {
+    color: #b0b0b0;
+    font-size: 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.featureTag:hover {
+    color: #ff6b00;
+}
+
+/* Project Footer */
+.projectFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.projectMeta {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.metaItem {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #8a8a8a;
+    font-size: 0.75rem;
+}
+
+.metaItem svg {
+    color: #ff6b00;
+    font-size: 0.8rem;
+}
+
+/* Project Buttons */
+.projectButtons {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: auto;
+}
+
+.githubBtn,
+.demoBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    flex: 1;
+    justify-content: center;
+}
+
+.githubBtn {
+    background: rgba(255, 255, 255, 0.05);
+    color: #e8e8e8;
+    border-color: #2a2a2a;
+}
+
+.githubBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ff6b00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 107, 0, 0.1);
+}
+
+.demoBtn {
+    background: #ff6b00;
+    color: #0d0d0d;
+}
+
+.demoBtn:hover {
+    background: #e05a00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(255, 107, 0, 0.3);
+}
+
+.demoBtn svg {
+    font-size: 0.8rem;
+}
+
+/* Responsive Design */
+
+@media (max-width: 1024px) {
+    .projects {
+        padding: 5rem 2rem;
+    }
+
+    .sectionTitle {
+        font-size: 2.4rem;
+    }
+
+    .projectsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects {
+        padding: 4rem 1.5rem;
+        min-height: auto;
+    }
+
+    .sectionTitle {
+        font-size: 2rem;
+    }
+
+    .sectionTitle::after {
+        width: 50px;
+    }
+
+    .sectionTitle:hover::after {
+        width: 80px;
+    }
+
+    .sectionSubtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .projectsGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .projectImage {
+        height: 200px;
+    }
+
+    .projectContent h3 {
+        font-size: 1.2rem;
+    }
+
+    .projectContent p {
+        font-size: 0.9rem;
+    }
+
+    .projectMeta {
+        gap: 0.8rem;
+    }
+
+    .metaItem {
+        font-size: 0.7rem;
+    }
+
+    .featuresList {
+        padding: 0.6rem 0.8rem;
+    }
+
+    .featureTag {
+        font-size: 0.75rem;
+    }
+
+    .projectButtons {
+        flex-direction: column;
+    }
+
+    .githubBtn,
+    .demoBtn {
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .projects {
+        padding: 3rem 1rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.8rem;
+    }
+
+    .sectionTitle::after {
+        width: 40px;
+        height: 3px;
+    }
+
+    .sectionSubtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .projectImage {
+        height: 180px;
+    }
+
+    .projectContent {
+        padding: 1.2rem;
+    }
+
+    .projectContent h3 {
+        font-size: 1.1rem;
+    }
+
+    .projectContent p {
+        font-size: 0.85rem;
+    }
+
+    .techTag {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.6rem;
+    }
+
+    .projectNumber {
+        font-size: 2rem;
+    }
+
+    .projectStatus {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.6rem;
+    }
+
+    .projectMeta {
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .featuresTags {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .featureTag {
+        font-size: 0.7rem;
+    }
+
+    .githubBtn,
+    .demoBtn {
+        font-size: 0.8rem;
+        padding: 0.6rem 0.8rem;
+    }
+}
+
+
+@media (max-width: 380px) {
+    .projects {
+        padding: 2.5rem 0.8rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.5rem;
+    }
+
+    .sectionSubtitle {
+        font-size: 0.85rem;
+    }
+
+    .projectImage {
+        height: 150px;
+    }
+
+    .projectContent h3 {
+        font-size: 1rem;
+    }
+
+    .projectContent p {
+        font-size: 0.8rem;
+    }
+
+    .techTag {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    .metaItem {
+        font-size: 0.65rem;
+    }
+
+    .githubBtn,
+    .demoBtn {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.6rem;
+    }
+}
+

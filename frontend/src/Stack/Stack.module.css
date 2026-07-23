@@ -1,0 +1,350 @@
+.skills {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    padding: 6rem 3rem;
+    background: #0d0d0d;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+    position: relative;
+    overflow: hidden;
+}
+
+.skills::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -20%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 107, 0, 0.03), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.skills::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 107, 0, 0.02), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.sectionTitle {
+    color: #e8e8e8;
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+}
+
+.sectionTitle::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6b00, #ff8c00);
+    margin: 0.8rem auto 0;
+    border-radius: 2px;
+    transition: width 0.4s ease;
+}
+
+.sectionTitle:hover::after {
+    width: 120px;
+}
+
+.sectionSubtitle {
+    color: #8a8a8a;
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 3rem;
+}
+
+.skillsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.categoryCard {
+    background: rgba(26, 26, 26, 0.6);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    border: 1px solid #2a2a2a;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.categoryCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 106, 0, 0.011);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.categoryCard:hover::before {
+    opacity: 1;
+}
+
+.categoryCard:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 107, 0, 0.4);
+    box-shadow: 0 10px 40px rgba(255, 107, 0, 0.1);
+    background: rgba(26, 26, 26, 0.85);
+}
+
+.categoryHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #2a2a2a;
+    transition: border-color 0.4s ease;
+}
+
+.categoryCard:hover .categoryHeader {
+    border-color: rgba(255, 107, 0, 0.3);
+}
+
+.categoryIcon {
+    font-size: 1.8rem;
+    line-height: 1;
+    transition: transform 0.4s ease;
+}
+
+
+
+.categoryHeader h3 {
+    color: #e8e8e8;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 0;
+    transition: color 0.4s ease;
+}
+
+
+.categoryCard:hover .categoryHeader h3 {
+    color: #ff6b00;
+}
+
+
+.skillList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.skillItem {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0.8rem;
+    background: rgba(13, 13, 13, 0.6);
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skillItem:hover {
+    border-color: rgba(255, 107, 0, 0.3);
+    transform: translateY(-3px) scale(1.02);
+}
+
+.skillIconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.skillIcon {
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.skillItem:hover .skillIcon {
+    transform: scale(1.2);
+}
+
+.skillName {
+    color: #b0b0b0;
+    font-size: 0.85rem;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+
+.skillItem:hover .skillName {
+    color: #ff6b00;
+}
+
+
+
+/*
+.categoryCard:hover .skillName {
+    color: #ff6b00;
+}
+
+
+
+.categoryCard:hover .skillItem {
+    border-color: rgba(255, 107, 0, 0.1);
+}
+
+
+
+.categoryCard:hover .skillItem {
+    background: rgba(255, 107, 0, 0.05);
+}
+*/
+
+/* Responsive Design */
+
+@media (max-width: 1024px) {
+    .skills {
+        padding: 5rem 2rem;
+    }
+
+    .sectionTitle {
+        font-size: 2.4rem;
+    }
+
+    .skillsGrid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills {
+        padding: 4rem 1.5rem;
+        min-height: auto;
+    }
+
+    .sectionTitle {
+        font-size: 2rem;
+    }
+
+    .sectionTitle::after {
+        width: 50px;
+    }
+
+    .sectionTitle:hover::after {
+        width: 80px;
+    }
+
+    .sectionSubtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .skillsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .categoryCard {
+        padding: 1.5rem 1.2rem;
+    }
+
+    .categoryHeader h3 {
+        font-size: 1.1rem;
+    }
+
+    .categoryIcon {
+        font-size: 1.5rem;
+    }
+
+    .skillItem {
+        padding: 0.4rem 0.6rem;
+    }
+
+    .skillName {
+        font-size: 0.8rem;
+    }
+
+    .skillIcon {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills {
+        padding: 3rem 1rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.8rem;
+    }
+
+    .sectionTitle::after {
+        width: 40px;
+        height: 3px;
+    }
+
+    .sectionSubtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .skillsGrid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .categoryCard {
+        padding: 1.2rem 1rem;
+    }
+
+    .categoryHeader h3 {
+        font-size: 1rem;
+    }
+
+    .categoryIcon {
+        font-size: 1.3rem;
+    }
+
+    .skillList {
+        gap: 0.6rem;
+    }
+
+    .skillItem {
+        padding: 0.3rem 0.6rem;
+    }
+
+    .skillName {
+        font-size: 0.75rem;
+    }
+
+    .skillIcon {
+        font-size: 0.9rem;
+    }
+}

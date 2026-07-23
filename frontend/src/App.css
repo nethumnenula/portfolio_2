@@ -1,0 +1,21 @@
+
+.App {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.app-visible {
+  opacity: 1;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background: #0d0d0d;
+  overflow-x: hidden;
+}

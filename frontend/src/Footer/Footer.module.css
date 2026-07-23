@@ -1,0 +1,403 @@
+.footer {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0a0a0a;
+    border-top: 1px solid #1a1a1a;
+    padding: 3rem 3rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background decoration */
+.footer::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff6b00, transparent);
+    opacity: 0.3;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* Footer Top */
+.footerTop {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+/* Brand */
+.brand h2 {
+    color: #e8e8e8;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.brand p {
+    color: #8a8a8a;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+/* ── Footer Navigation ────────────────────────────────────── */
+.footerNav {
+    position: relative;
+}
+
+.footerNav h4,
+.footerSocial h4 {
+    color: #8a8a8a;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+    cursor: default;
+}
+
+/* Full width underline - Main Title Hover Effect */
+.footerNav h4::after,
+.footerSocial h4::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: #ff6b00;
+    border-radius: 2px;
+    transition: width 0.4s ease, background 0.3s ease;
+}
+
+
+.footerNav:hover h4,
+.footerSocial:hover h4 {
+    color: #ff6b00;
+}
+
+.footerNav:hover h4::after,
+.footerSocial:hover h4::after {
+    width: 100%;
+    background: #ff6b00;
+}
+
+/* Quick Links List */
+.footerNav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footerNav ul li {
+    margin-bottom: 0.6rem;
+}
+
+.footerNav ul li a {
+    color: #8a8a8a;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.footerNav ul li a::before {
+    content: '›';
+    color: #ff6b00;
+    margin-right: 0.4rem;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footerNav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ff6b00;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 107, 0, 0.3);
+}
+
+.footerNav ul li a:hover {
+    color: #ff6b00;
+    padding-left: 0.5rem;
+    transform: translateX(5px);
+}
+
+.footerNav ul li a:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+
+.footerSocial {
+    position: relative;
+}
+
+.socialLinks {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.socialLinks a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: rgba(26, 26, 26, 0.6);
+    border-radius: 10px;
+    color: #8a8a8a;
+    font-size: 1.1rem;
+    border: 1px solid #2a2a2a;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.socialLinks a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 107, 0, 0.15);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+}
+
+.socialLinks a:hover::before {
+    width: 200%;
+    height: 200%;
+}
+
+.socialLinks a:hover {
+    background: rgba(255, 107, 0, 0.15);
+    border-color: #ff6b00;
+    color: #ff6b00;
+    transform: translateY(-5px) scale(1.08);
+    box-shadow: 0 8px 30px rgba(255, 107, 0, 0.2);
+}
+
+.socialLinks a svg {
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.socialLinks a:hover svg {
+    transform: scale(1.2) rotate(-5deg);
+}
+
+/* ── Footer Bottom ────────────────────────────────────────── */
+.footerBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footerBottom p {
+    color: #5a5a5a;
+    font-size: 0.85rem;
+}
+
+.madeWith {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.heartIcon {
+    color: #ff6b00;
+    font-size: 0.9rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* ── Responsive Design ───────────────────────────────────── */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .footer {
+        padding: 2.5rem 2rem 1.5rem;
+    }
+
+    .footerTop {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+    }
+
+    .brand {
+        grid-column: 1 / -1;
+    }
+
+    .brand p {
+        max-width: 100%;
+    }
+}
+
+/* Mobile Landscape & Small Tablets */
+@media (max-width: 768px) {
+    .footer {
+        padding: 2rem 1.5rem 1.2rem;
+    }
+
+    .footerTop {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .brand h2 {
+        font-size: 1.5rem;
+    }
+
+    .brand p {
+        font-size: 0.9rem;
+    }
+
+    .footerNav h4,
+    .footerSocial h4 {
+        font-size: 0.9rem;
+    }
+
+    .footerNav ul li a {
+        font-size: 0.85rem;
+    }
+
+    .socialLinks a {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+    }
+
+    .footerBottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+        padding-top: 1.2rem;
+    }
+
+    .footerBottom p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Mobile Portrait */
+@media (max-width: 480px) {
+    .footer {
+        padding: 1.5rem 1rem 1rem;
+    }
+
+    .footerTop {
+        gap: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .brand h2 {
+        font-size: 1.3rem;
+    }
+
+    .brand p {
+        font-size: 0.85rem;
+    }
+
+    .footerNav h4,
+    .footerSocial h4 {
+        font-size: 0.85rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .footerNav ul li {
+        margin-bottom: 0.4rem;
+    }
+
+    .footerNav ul li a {
+        font-size: 0.8rem;
+    }
+
+    .socialLinks {
+        gap: 0.6rem;
+    }
+
+    .socialLinks a {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+        border-radius: 8px;
+    }
+
+    .footerBottom p {
+        font-size: 0.75rem;
+    }
+
+    .heartIcon {
+        font-size: 0.8rem;
+    }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 380px) {
+    .footer {
+        padding: 1.2rem 0.8rem 0.8rem;
+    }
+
+    .brand h2 {
+        font-size: 1.1rem;
+    }
+
+    .brand p {
+        font-size: 0.8rem;
+    }
+
+    .footerNav h4,
+    .footerSocial h4 {
+        font-size: 0.8rem;
+    }
+
+    .footerNav ul li a {
+        font-size: 0.75rem;
+    }
+
+    .socialLinks a {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+    }
+}

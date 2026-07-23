@@ -1,0 +1,136 @@
+.floatingBadge {
+    position: absolute;
+    background: hsla(0, 0%, 5%, 0.39);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 107, 0, 0.2);
+    padding: 1rem 1.5rem;
+    border-radius: 16px;
+    color: #e8e8e8;
+    animation: float 3s ease-in-out infinite;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    min-width: 160px;
+    transition: all 0.3s ease;
+    z-index: 10;
+    
+}
+
+/*Position Classes*/
+.topLeft {
+    top: -20px;
+    left: 30px;
+    
+}
+
+.topRight {
+    top: 0;
+    right: 0;
+    
+}
+
+.bottomLeft {
+    bottom: 0;
+    left: 0;
+    
+}
+
+.bottomRight {
+    bottom: 0;
+    right: 0;
+    
+}
+.customPosition1{
+    right: -10px;
+    top: 300px;
+    
+}
+
+.floatingBadge:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 107, 0, 0.4);
+    box-shadow: 0 12px 40px rgba(255, 107, 0, 0.15);
+}
+
+
+.badgeHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.badgeIcon {
+    font-size: 1.2rem;
+    color: #ff6b00;
+    padding: 2px 2px;
+    transition: background-color 0.3s ease;
+}
+
+.badgeIcon:hover {
+    background-color: hsla(24, 100%, 44%, 0.308);
+    border-radius: 5px;
+}
+
+.badgeHeader span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #e8e8e8;
+    letter-spacing: 0.3px;
+}
+
+
+.badgeTech {
+    display: flex;
+    gap: 0.8rem;
+    font-size: 0.8rem;
+    color: #b0b0b0;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.techItem {
+    position: relative;
+    padding: 0.2rem 0;
+    transition: color 0.3s ease;
+}
+
+.techItem:hover {
+    color: #ff6b00;
+}
+
+
+.techItem:not(:last-child)::after {
+    content: '•';
+    color: #ff6b00;
+    margin-left: 0.8rem;
+    opacity: 0.6;
+}
+
+
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+

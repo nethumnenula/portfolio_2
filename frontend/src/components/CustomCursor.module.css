@@ -1,0 +1,226 @@
+/* CustomCursor.module.css */
+
+/* ============================================
+   GLOW EFFECT
+   ============================================ */
+.cursorGlow {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 107, 0, 0.3) 0%,
+    rgba(255, 107, 0, 0.1) 40%,
+    rgba(255, 107, 0, 0.05) 60%,
+    transparent 70%
+  );
+  transition: all 0.2s ease;
+  opacity: 0.8;
+  filter: blur(2px);
+}
+
+.cursorGlow.hover {
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 107, 0, 0.5) 0%,
+    rgba(255, 107, 0, 0.2) 40%,
+    rgba(255, 107, 0, 0.08) 60%,
+    transparent 70%
+  );
+  opacity: 1;
+  filter: blur(3px);
+}
+
+.cursorGlow.clicking {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 107, 0, 0.4) 0%,
+    rgba(255, 107, 0, 0.15) 40%,
+    transparent 70%
+  );
+  opacity: 0.9;
+  filter: blur(2px);
+}
+
+/* ============================================
+   MAIN CURSOR RING - REDUCED SIZE
+   ============================================ */
+.cursor {
+  position: fixed;
+  width: 28px;
+  height: 28px;
+  border: 2px solid #ff6b00;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, 
+              background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 107, 0, 0.05);
+  box-shadow: 
+    0 0 15px rgba(255, 107, 0, 0.1),
+    inset 0 0 15px rgba(255, 107, 0, 0.05);
+}
+
+.cursor.hover {
+  width: 40px;
+  height: 40px;
+  border-color: #ff6b00;
+  background: rgba(255, 107, 0, 0.15);
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 
+    0 0 30px rgba(255, 107, 0, 0.3),
+    inset 0 0 30px rgba(255, 107, 0, 0.1);
+  animation: pulseGlow 0.8s ease-in-out infinite;
+}
+
+.cursor.clicking {
+  width: 22px;
+  height: 22px;
+  border-color: #ff8c00;
+  background: rgba(255, 107, 0, 0.25);
+  transform: translate(-50%, -50%) scale(0.9);
+  box-shadow: 
+    0 0 40px rgba(255, 107, 0, 0.4),
+    inset 0 0 40px rgba(255, 107, 0, 0.15);
+}
+
+/* ============================================
+   CURSOR DOT - REDUCED SIZE
+   ============================================ */
+.cursorDot {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  background: #ff6b00;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 100000;
+  transition: width 0.15s ease, height 0.15s ease, background 0.2s ease, 
+              transform 0.1s ease, box-shadow 0.2s ease;
+  transform: translate(-50%, -50%);
+  box-shadow: 
+    0 0 12px rgba(255, 107, 0, 0.5),
+    0 0 25px rgba(255, 107, 0, 0.2);
+}
+
+.cursorDot.hover {
+  width: 8px;
+  height: 8px;
+  background: #ff6b00;
+  transform: translate(-50%, -50%) scale(1.2);
+  box-shadow: 
+    0 0 20px rgba(255, 107, 0, 0.7),
+    0 0 40px rgba(255, 107, 0, 0.3);
+  animation: pulseDot 0.8s ease-in-out infinite;
+}
+
+.cursorDot.clicking {
+  width: 4px;
+  height: 4px;
+  background: #ff8c00;
+  transform: translate(-50%, -50%) scale(0.8);
+  box-shadow: 
+    0 0 15px rgba(255, 107, 0, 0.8),
+    0 0 30px rgba(255, 107, 0, 0.4);
+}
+
+/* ============================================
+   ANIMATIONS - FASTER
+   ============================================ */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 
+      0 0 30px rgba(255, 107, 0, 0.3),
+      inset 0 0 30px rgba(255, 107, 0, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 0 50px rgba(255, 107, 0, 0.5),
+      inset 0 0 50px rgba(255, 107, 0, 0.2);
+  }
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba(255, 107, 0, 0.7),
+      0 0 40px rgba(255, 107, 0, 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 0 35px rgba(255, 107, 0, 0.9),
+      0 0 60px rgba(255, 107, 0, 0.4);
+  }
+}
+
+/* ============================================
+   TRAIL EFFECT (Optional)
+   ============================================ */
+.trail {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #ff6b00, transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99997;
+  transform: translate(-50%, -50%);
+  transition: all 0.15s ease;
+  opacity: 0.5;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* Hide on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .cursor,
+  .cursorDot,
+  .cursorGlow,
+  .trail {
+    display: none !important;
+  }
+  
+  body {
+    cursor: auto !important;
+  }
+}
+
+/* Hide on small screens */
+@media (max-width: 768px) {
+  .cursor,
+  .cursorDot,
+  .cursorGlow,
+  .trail {
+    display: none !important;
+  }
+  
+  body {
+    cursor: auto !important;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .cursor.hover {
+    animation: none;
+  }
+  
+  .cursorDot.hover {
+    animation: none;
+  }
+  
+  .cursorGlow.hover {
+    animation: none;
+  }
+}
