@@ -4,9 +4,18 @@
     <meta charset="utf-8" />
     <title>Nethum - Portfolio</title>
     <script type="text/javascript">
-      // Redirect to the correct path
+      
       const path = window.location.pathname;
-      const newPath = path.replace('/portfolio_2', '');
+      
+      
+      let newPath = path.replace('/portfolio_2', '');
+      
+      
+      if (!newPath || newPath === '') {
+        newPath = '/';
+      }
+      
+      
       window.location.href = '/portfolio_2' + newPath + window.location.search;
     </script>
   </head>
