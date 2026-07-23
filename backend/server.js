@@ -1,4 +1,4 @@
-require("dotenv").config();
+//require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 });
 
 // routes
-app.use("/admin");
+//app.use("/admin");
 
 // DB connection
 async function startServer() {
@@ -32,3 +32,4 @@ async function startServer() {
     console.error(`An Error Occurred, ${error}`);
   }
 }
+startServer();
