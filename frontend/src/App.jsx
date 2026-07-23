@@ -18,6 +18,13 @@ function App() {
   const [contentVisible, setContentVisible] = useState(false);
 
   useEffect(() => {
+    // Handle GitHub Pages 404 redirect
+    const redirect = sessionStorage.getItem('redirect');
+    if (redirect) {
+      sessionStorage.removeItem('redirect');
+      window.history.replaceState(null, null, redirect);
+    }
+
     const timer = setTimeout(() => {
       setLoading(false);
       setTimeout(() => {
@@ -36,7 +43,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router basename="/portfolio_2/">
       {loading && <Loading onLoadingComplete={handleLoadingComplete} />}
       {/* {!loading && <CustomCursor />} */}
       
