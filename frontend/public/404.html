@@ -4,19 +4,12 @@
     <meta charset="utf-8" />
     <title>Nethum - Portfolio</title>
     <script type="text/javascript">
+      // Get the path without the base
+      const path = window.location.pathname.replace('/portfolio_2', '') || '/';
+      const search = window.location.search;
       
-      const path = window.location.pathname;
-      
-      
-      let newPath = path.replace('/portfolio_2', '');
-      
-      
-      if (!newPath || newPath === '') {
-        newPath = '/';
-      }
-      
-      
-      window.location.href = '/portfolio_2' + newPath + window.location.search;
+      // Redirect to index.html with the path in the URL
+      window.location.href = '/portfolio_2/index.html' + search + '#!' + path;
     </script>
   </head>
   <body>

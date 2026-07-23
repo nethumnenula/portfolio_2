@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom"; // ← Changed to HashRouter
 import Header from "./Header/Header.jsx";
 import Hero from "./Hero/Hero.jsx";
 import About from "./About/About.jsx";
@@ -14,17 +14,21 @@ import Admin from "./Admin/Admin.jsx";
 // import CustomCursor from "./CustomCursor/CustomCursor.jsx";
 
 function App() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Handle GitHub Pages redirect
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#!/')) {
+      const path = hash.replace('#!/', '');
+      window.history.replaceState({}, '', path);
+      navigate(path);
+    }
+  }, [navigate]);
   const [loading, setLoading] = useState(true);
   const [contentVisible, setContentVisible] = useState(false);
 
   useEffect(() => {
-    // Handle GitHub Pages 404 redirect
-    const redirect = sessionStorage.getItem('redirect');
-    if (redirect) {
-      sessionStorage.removeItem('redirect');
-      window.history.replaceState(null, null, redirect);
-    }
-
     const timer = setTimeout(() => {
       setLoading(false);
       setTimeout(() => {
@@ -43,7 +47,7 @@ function App() {
   };
 
   return (
-    <Router basename="/portfolio_2/">
+    <Router> {/* ← Removed basename - HashRouter doesn't need it */}
       {loading && <Loading onLoadingComplete={handleLoadingComplete} />}
       {/* {!loading && <CustomCursor />} */}
       
