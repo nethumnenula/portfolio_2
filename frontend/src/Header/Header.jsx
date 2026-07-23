@@ -1,13 +1,17 @@
+// Header.jsx
 import styles from "./Header.module.css";
 import { useState, useEffect } from "react";
-import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
+import { FaGithub, FaLinkedin, FaInstagram, FaUserCog } from "react-icons/fa";
 
 function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const location = useLocation();
 
-  // Handle scroll for header background
+  const isAdminPage = location.pathname === "/admin";
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -16,8 +20,9 @@ function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
   useEffect(() => {
+    if (isAdminPage) return;
+
     const sections = ["home", "about", "skills", "projects", "education", "contact"];
 
     const handleScroll = () => {
@@ -40,9 +45,8 @@ function Header() {
     window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isAdminPage]);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
@@ -54,8 +58,11 @@ function Header() {
     };
   }, [open]);
 
-  // Smooth scroll function
   const handleSmoothScroll = (e, targetId) => {
+    if (isAdminPage) {
+      e.preventDefault();
+      return;
+    }
     e.preventDefault();
     const target = document.getElementById(targetId);
     if (target) {
@@ -83,30 +90,55 @@ function Header() {
       >
         {/* Logo */}
         <div className={styles.leftSection}>
-          <a href="#home" onClick={(e) => handleSmoothScroll(e, "home")}>
-            <h1>&lt;Nethum&gt;</h1>
-          </a>
+          {isAdminPage ? (
+            <Link to="/">
+              <h1>&lt;Nethum&gt;</h1>
+            </Link>
+          ) : (
+            <a href="#home" onClick={(e) => handleSmoothScroll(e, "home")}>
+              <h1>&lt;Nethum&gt;</h1>
+            </a>
+          )}
         </div>
 
         {/* Desktop Navigation */}
         <nav className={styles.navButtons}>
           <ul>
-            {navLinks.map((link) => (
-              <li key={link.id}>
-                <a
-                  href={`#${link.id}`}
-                  className={activeSection === link.id ? styles.active : ""}
-                  onClick={(e) => handleSmoothScroll(e, link.id)}
-                >
-                  {link.name}
-                </a>
+            {isAdminPage ? (
+              <li>
+                <Link to="/" className={styles.active}>
+                  Home
+                </Link>
               </li>
-            ))}
+            ) : (
+              <>
+                {navLinks.map((link) => (
+                  <li key={link.id}>
+                    <a
+                      href={`#${link.id}`}
+                      className={activeSection === link.id ? styles.active : ""}
+                      onClick={(e) => handleSmoothScroll(e, link.id)}
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </>
+            )}
           </ul>
         </nav>
 
-        {/* Social Icons */}
+        {/* Right Section */}
         <div className={styles.rightSection}>
+          {/* Admin Link */}
+          <div className={styles.adminLinkWrapper}>
+            <Link to="/admin" className={styles.adminLink}>
+              <FaUserCog className={styles.adminIcon} />
+              <span className={styles.adminText}>Admin</span>
+            </Link>
+          </div>
+
+          {/* Social Icons */}
           <div className={styles.profileButtons}>
             <ul>
               <li>
@@ -159,26 +191,36 @@ function Header() {
       <div className={`${styles.mobileMenu} ${open ? styles.show : ""}`}>
         <div className={styles.mobileMenuContent}>
           <ul className={styles.mobileNav}>
-            {navLinks.map((link) => (
-              <li key={link.id}>
-                <a
-                  href={`#${link.id}`}
-                  className={activeSection === link.id ? styles.active : ""}
-                  onClick={(e) => handleSmoothScroll(e, link.id)}
-                >
-                  {link.name}
-                </a>
+            {isAdminPage ? (
+              <li>
+                <Link to="/" onClick={() => setOpen(false)}>
+                  Home
+                </Link>
               </li>
-            ))}
+            ) : (
+              <>
+                {navLinks.map((link) => (
+                  <li key={link.id}>
+                    <a
+                      href={`#${link.id}`}
+                      className={activeSection === link.id ? styles.active : ""}
+                      onClick={(e) => handleSmoothScroll(e, link.id)}
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </>
+            )}
           </ul>
 
-          <a
-            href="#contact"
-            onClick={(e) => handleSmoothScroll(e, "contact")}
+          <Link
+            to="/admin"
             className={styles.contactBtn}
+            onClick={() => setOpen(false)}
           >
-            Let's Talk
-          </a>
+            <FaUserCog /> Admin Panel
+          </Link>
         </div>
       </div>
     </div>

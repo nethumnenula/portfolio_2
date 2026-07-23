@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Header/Header.jsx";
 import Hero from "./Hero/Hero.jsx";
 import About from "./About/About.jsx";
@@ -9,7 +10,8 @@ import Education from "./Education/Education.jsx";
 import Contact from "./Contact/Contact.jsx";
 import Footer from "./Footer/Footer.jsx";
 import Loading from "./Loading/Loading.jsx";
-
+import Admin from "./Admin/Admin.jsx";
+// import CustomCursor from "./CustomCursor/CustomCursor.jsx";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -34,9 +36,9 @@ function App() {
   };
 
   return (
-    <>
+    <Router>
       {loading && <Loading onLoadingComplete={handleLoadingComplete} />}
-      {/*{!loading && <CustomCursor />}*/}
+      {/* {!loading && <CustomCursor />} */}
       
       <div 
         className="App" 
@@ -48,33 +50,48 @@ function App() {
       >
         <Header />
 
-        <section id="home">
-          <Hero />
-        </section>
+        <Routes>
+          {/* Home Page Route */}
+          <Route path="/" element={
+            <>
+              <section id="home">
+                <Hero />
+              </section>
 
-        <section id="about">
-          <About />
-        </section>
+              <section id="about">
+                <About />
+              </section>
 
-        <section id="skills">
-          <Stack />
-        </section>
+              <section id="skills">
+                <Stack />
+              </section>
 
-        <section id="projects">
-          <Projects />
-        </section>
+              <section id="projects">
+                <Projects />
+              </section>
 
-        <section id="education">
-          <Education />
-        </section>
+              <section id="education">
+                <Education />
+              </section>
 
-        <section id="contact">
-          <Contact />
-        </section>
+              <section id="contact">
+                <Contact />
+              </section>
 
-        <Footer />
+              <Footer />
+            </>
+          } />
+          
+          {/* Admin Route */}
+          <Route path="/admin" element={
+            <>
+              <Admin />
+              <Footer />
+            </>
+          } />
+        </Routes>
       </div>
-    </>
+    </Router>
   );
 }
 

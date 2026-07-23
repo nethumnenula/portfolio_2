@@ -3,38 +3,41 @@ const mongoose = require("mongoose");
 const projectSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true,
+    required: [true, "Title is required"],
     trim: true,
   },
   description: {
     type: String,
-    required: true,
+    required: [true, "Description is required"],
     trim: true,
   },
-  techStark: {
+  techStack: {
     type: [String],
-    required: true,
+    required: [true, "Tech stack is required"],
   },
   github: {
     type: String,
-    required: true,
+    required: [true, "GitHub URL is required"],
+    trim: true,
   },
   demo: {
     type: String,
     default: "#",
+    trim: true,
   },
   image: {
     type: String,
     default: "",
+    trim: true,
   },
   details: {
     date: {
       type: String,
-      required: true,
+      required: [true, "Date is required"],
     },
     role: {
       type: String,
-      required: true,
+      required: [true, "Role is required"],
     },
     status: {
       type: String,
@@ -43,11 +46,11 @@ const projectSchema = new mongoose.Schema({
     },
     category: {
       type: String,
-      required: true,
+      required: [true, "Category is required"],
     },
     features: {
       type: [String],
-      required: true,
+      required: [true, "Features are required"],
     },
   },
   createdAt: {
@@ -59,4 +62,5 @@ const projectSchema = new mongoose.Schema({
     default: Date.now,
   },
 });
+
 module.exports = mongoose.model("Project", projectSchema);

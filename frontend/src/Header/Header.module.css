@@ -113,6 +113,40 @@
     width: 100%;
 }
 
+/* ── Admin Link ───────────────────────────────────────────── */
+.adminLinkWrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 0.5rem;
+}
+
+.adminLink {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all var(--dur) var(--ease);
+}
+
+.adminLink:hover {
+    color: #ff6b00;
+    background: var(--accent-subtle);
+    border-color: var(--accent-border);
+}
+
+.adminIcon {
+    font-size: 1rem;
+}
+
+.adminText {
+    font-weight: 500;
+}
+
 /* ── Social Icons ────────────────────────────────────────── */
 .rightSection {
     display: flex;
@@ -353,6 +387,14 @@
 /* ── Responsive ──────────────────────────────────────────── */
 
 @media (max-width: 1100px) {
+    .adminText {
+        display: none;
+    }
+    
+    .adminLink {
+        padding: 0.4rem 0.6rem;
+    }
+
     .profileIconName {
         display: none;
     }
