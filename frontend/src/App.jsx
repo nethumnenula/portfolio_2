@@ -37,7 +37,7 @@ function App() {
   };
 
   return (
-    <Router> {/* ← Removed basename - HashRouter doesn't need it */}
+    <Router basename="/portfolio_2"> 
       {loading && <Loading onLoadingComplete={handleLoadingComplete} />}
       {/* {!loading && <CustomCursor />} */}
       
