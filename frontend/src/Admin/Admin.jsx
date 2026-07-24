@@ -81,7 +81,7 @@ function Admin() {
     }
   };
 
-  // Updated icon mapping - case insensitive and more flexible
+  
   const getIconForTech = (techName) => {
     const techMap = {
       'react': { icon: FaReact, color: '#61DAFB' },
@@ -471,7 +471,7 @@ function Admin() {
         </div>
       </div>
 
-      {/* Add/Edit Modal */}
+      {/* Add/Edit Model */}
       {showModal && (
         <div className={styles.modalOverlay} onClick={handleCloseModal}>
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>

@@ -1,4 +1,3 @@
-/* Admin.module.css */
 .admin {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   padding: 6rem 3rem;
@@ -1172,7 +1171,7 @@
     animation: none;
   }
 }
-/* Admin.module.css - Add these styles */
+
 
 /* Image Drop Zone */
 .imageDropZone {

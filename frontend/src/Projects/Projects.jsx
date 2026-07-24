@@ -1,4 +1,3 @@
-// Projects.jsx - Read-only view
 import styles from "./Projects.module.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
